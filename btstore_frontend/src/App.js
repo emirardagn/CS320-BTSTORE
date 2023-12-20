@@ -9,7 +9,7 @@ function App() {
       <div className='container'>
         <div className='row'>
         <Routes>
-          <Route path="/login" exact Component={Login}/>
+          <Route path="/" exact Component={Login}/>
           <Route path='/createNewUser' Component={signup}/>
         </Routes>
         </div>

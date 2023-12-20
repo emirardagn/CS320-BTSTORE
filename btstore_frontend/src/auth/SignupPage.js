@@ -53,7 +53,7 @@ function SignupPage() {
           </div>
           <div className="next_page_button">
             <text>Have an account yet?</text>
-            <Link to="/Login" className="signupLink">
+            <Link to="/" className="signupLink">
               Login!
             </Link>
           </div>

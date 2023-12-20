@@ -1,8 +1,20 @@
-import React from 'react';
+import React ,{ useState }from 'react';
 import './auth.css';
 import { Link } from 'react-router-dom';
 
 function SignupPage() {
+
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [passwordConfirm, setPasswordConfirm] = useState('');
+
+  const handleSignup = () => {
+    console.log('Name:', name);
+    console.log('Email:', email);
+    console.log('Password:', password);
+    console.log('Password Confirm:', passwordConfirm);
+  };
   return (
     <div className="Login">
       <body className="Login_body">

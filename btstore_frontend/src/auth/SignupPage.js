@@ -1,6 +1,7 @@
 import React ,{ useState }from 'react';
 import './auth.css';
 import { Link } from 'react-router-dom';
+import { databaseService } from './path-to-your-database-service';
 
 function SignupPage() {
 
@@ -9,12 +10,39 @@ function SignupPage() {
   const [password, setPassword] = useState('');
   const [passwordConfirm, setPasswordConfirm] = useState('');
 
-  const handleSignup = () => {
-    console.log('Name:', name);
-    console.log('Email:', email);
-    console.log('Password:', password);
-    console.log('Password Confirm:', passwordConfirm);
-  };
+
+const handleSignup = async () => {
+  console.log('Name:', name);
+  console.log('Email:', email);
+  console.log('Password:', password);
+  console.log('Password Confirm:', passwordConfirm);
+
+
+  if (password !== passwordConfirm) {
+    // Handle password mismatch
+    console.error('Passwords do not match');
+    return;
+  }
+
+  try {
+    // Encrypt the password before sending it to the database
+    const encryptedPassword = encryptPassword(password);
+
+    // Save user data to the database
+    await databaseService.saveUser({
+      name,
+      email,
+      password: encryptedPassword,
+    });
+
+    // Handle success (e.g., show success message, redirect to login page, etc.)
+    console.log('User registered successfully');
+  } catch (error) {
+    // Handle errors (e.g., show error message)
+    console.error('Error during signup:', error);
+  }
+};
+
   return (
     <div className="Login">
       <body className="Login_body">
@@ -58,8 +86,7 @@ function SignupPage() {
                 aria-describedby="basic-addon1"
               />
             </div>
-            {/* Sign Up Button */}
-            <button type="button" className="btn btn-primary">
+            <button type="button" className="btn btn-primary" onClick={handleSignup}>
               Sign Up
             </button>
           </div>

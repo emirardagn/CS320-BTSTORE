@@ -1,7 +1,6 @@
 import React ,{ useState }from 'react';
 import './auth.css';
 import { Link } from 'react-router-dom';
-import { databaseService } from './path-to-your-database-service';
 
 function SignupPage() {
 
@@ -11,37 +10,46 @@ function SignupPage() {
   const [passwordConfirm, setPasswordConfirm] = useState('');
 
 
-const handleSignup = async () => {
-  console.log('Name:', name);
-  console.log('Email:', email);
-  console.log('Password:', password);
-  console.log('Password Confirm:', passwordConfirm);
-
-
-  if (password !== passwordConfirm) {
-    // Handle password mismatch
-    console.error('Passwords do not match');
-    return;
-  }
-
-  try {
-    // Encrypt the password before sending it to the database
-    const encryptedPassword = encryptPassword(password);
-
-    // Save user data to the database
-    await databaseService.saveUser({
-      name,
-      email,
-      password: encryptedPassword,
-    });
-
-    // Handle success (e.g., show success message, redirect to login page, etc.)
-    console.log('User registered successfully');
-  } catch (error) {
-    // Handle errors (e.g., show error message)
-    console.error('Error during signup:', error);
-  }
-};
+  const handleSignup = async () => {
+    console.log('Name:', name);
+    console.log('Email:', email);
+    console.log('Password:', password);
+    console.log('Password Confirm:', passwordConfirm);
+  
+    // Önce girdileri doğrulayın
+    if (password !== passwordConfirm) {
+      console.error('Passwords do not match');
+      return;
+    }
+  
+    // Kullanıcı verilerini API'ye gönderme
+    try {
+      const response = await fetch('/api/createUser', {  // API endpoint'inizi '/api/createUser' ile değiştirin
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          password,  // Şifrenin güvenli bir şekilde işlendiğinden emin olun
+        }),
+      });
+  
+      const data = await response.json();
+  
+      if (response.ok) {
+        console.log('User created successfully:', data);
+        // Başarılı kayıttan sonra yapılacak işlemler (örn. kullanıcıyı giriş sayfasına yönlendirme)
+      } else {
+        console.error('Signup failed:', data.message);
+        // Hata mesajlarını kullanıcıya göster
+      }
+    } catch (error) {
+      console.error('Error during signup:', error);
+    }
+  };
+  
 
   return (
     <div className="Login">

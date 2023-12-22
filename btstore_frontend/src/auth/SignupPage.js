@@ -2,6 +2,8 @@ import React ,{ useState }from 'react';
 import './auth.css';
 import { Link } from 'react-router-dom';
 
+const URL = "";
+
 function SignupPage() {
 
   const [name, setName] = useState('');
@@ -22,32 +24,31 @@ function SignupPage() {
       return;
     }
   
-    // Kullanıcı verilerini API'ye gönderme
     try {
-      const response = await fetch('/api/createUser', {  // API endpoint'inizi '/api/createUser' ile değiştirin
+      const response = await fetch(URL, { 
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          name,
-          email,
-          password,  // Şifrenin güvenli bir şekilde işlendiğinden emin olun
+          name: name,
+          email: email,
+          password: password,  // Güvenliğe dikkat edin (Örn: Şifreyi açık metinde göndermeyin)
         }),
       });
   
       const data = await response.json();
   
       if (response.ok) {
-        console.log('User created successfully:', data);
-        // Başarılı kayıttan sonra yapılacak işlemler (örn. kullanıcıyı giriş sayfasına yönlendirme)
+        console.log('Signup successful:', data);
+        // Başarılı kayıttan sonraki işlemler (örn. kullanıcıyı başka bir sayfaya yönlendirme)
       } else {
-        console.error('Signup failed:', data.message);
-        // Hata mesajlarını kullanıcıya göster
+        console.error('Signup failed:', data);
+        // Hata mesajını kullanıcıya göster
       }
     } catch (error) {
-      console.error('Error during signup:', error);
-    }
+      console.error('Network error:', error);
+    }  
   };
   
 

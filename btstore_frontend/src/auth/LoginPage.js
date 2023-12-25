@@ -3,6 +3,39 @@ import './auth.css';
 import { Link } from 'react-router-dom';
 
 function LoginPage() {
+  const [loginData, setLoginData] = useState({
+    email: '',
+    password: ''
+});
+
+const handleChange = (event) => {
+    setLoginData({ ...loginData, [event.target.name]: event.target.value });
+};
+
+const handleLogin = (event) => {
+    event.preventDefault();
+
+    // API'ye giriş isteği gönderme
+    fetch('http://localhost:8080/api/users/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            email: loginData.email,
+            password: loginData.password
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+        // Giriş işlemi başarılıysa burada işleyin
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+};
+
   return (
     <div className="Login">
       <body className="Login_body">

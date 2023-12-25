@@ -3,6 +3,47 @@ import './auth.css';
 import { Link } from 'react-router-dom';
 
 function SignupPage() {
+  const [user, setUser] = useState({
+    name: '',
+    email: '',
+    password: '',
+    passwordConfirm: ''
+});
+
+const handleChange = (event) => {
+    setUser({ ...user, [event.target.name]: event.target.value });
+};
+
+const handleSignUp = (event) => {
+    event.preventDefault();
+
+    // Şifre doğrulaması
+    if (user.password !== user.passwordConfirm) {
+        alert('Passwords do not match!');
+        return;
+    }
+
+    // API'ye kayıt isteği gönderme
+    fetch('http://localhost:8080/api/users/register', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            name: user.name,
+            email: user.email,
+            password: user.password
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+        // Başarılı kayıt işleminden sonra yapılacak işlemler
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+};
   return (
     <div className="Login">
       <body className="Login_body">
@@ -62,5 +103,6 @@ function SignupPage() {
     </div>
   );
 }
+
 
 export default SignupPage;

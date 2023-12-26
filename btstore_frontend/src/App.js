@@ -34,7 +34,6 @@ function App() {
           <Route path='/productPage' Component={ProductPage}/>
           <Route path='/createNewProduct' Component={CreateNewProduct}/>
           <Route path='/profilePageArtist' Component={ProfilePageArtist}/>
-
         </Routes>
         </div>
       </div>

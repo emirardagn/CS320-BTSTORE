@@ -22,7 +22,7 @@ function SignupPage() {
     }
 
     else if (password.length <2){
-      infoText.innerText ="passwords length must be atleast 2";
+      infoText.innerText ="passwords length must be at least 2";
     }
 
 
@@ -39,21 +39,19 @@ function SignupPage() {
         password: password,
       };
   
-      // Fetch API kullanarak POST isteği gönderme
       fetch(url, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          // Diğer isteğe özel başlıkları buraya ekleyin (örneğin, 'Authorization' gibi)
         },
         body: JSON.stringify(data),
       })
         .then(response => response.json())
         .then(data => {
-          console.log('Post işlemi başarılı:', data);
+          infoText.innerText ="done!";
         })
         .catch(error => {
-          console.error('Hata oluştu:', error);
+          infoText.innerText ="something went wrong, please try again.";
         });
     }
     

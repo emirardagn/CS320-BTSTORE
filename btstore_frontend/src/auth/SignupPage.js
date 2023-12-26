@@ -22,7 +22,7 @@ function SignupPage() {
     }
 
     else if (password.length <2){
-      infoText.innerText ="passwords length must be atleast 2";
+      infoText.innerText ="passwords length must be at least 2";
     }
 
 

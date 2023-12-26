@@ -22,7 +22,6 @@ function LoginPage() {
 
     else{
       infoText.innerText ="";
-      let url
       if (role == "user"){
         fetch("http://localhost:3000/users/login?username="+username+"&password="+password, {
           method: 'POST',

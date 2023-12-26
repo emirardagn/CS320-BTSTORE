@@ -28,7 +28,6 @@ function SignupPage() {
 
     else{
       infoText.innerText ="";
-
       if (role == "user"){
         fetch("http://localhost:3000/users/create", {
           method: 'POST',

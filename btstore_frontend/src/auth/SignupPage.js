@@ -29,7 +29,7 @@ function SignupPage() {
 
     else{
       infoText.innerText ="";
-      const url = 'http://localhost:8080/users/create';
+      const url = 'http://localhost:3000/users/create';
 
       const data = {
         name: name,

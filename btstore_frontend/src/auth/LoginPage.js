@@ -3,7 +3,7 @@ import './auth.css';
 import { Link } from 'react-router-dom';
 
 function LoginPage() {
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
 
@@ -22,7 +22,7 @@ function LoginPage() {
 
     else{
       infoText.innerText ="";
-      const url = 'http://localhost:3000/artist/name/'+email;
+      const url = "http://localhost:3000/users";
 
       fetch(url)
       .then(response => {
@@ -55,11 +55,11 @@ function LoginPage() {
               <input
                 type="text"
                 className="form-control"
-                placeholder="Email"
-                aria-label="email"
+                placeholder="Username"
+                aria-label="Username"
                 aria-describedby="basic-addon1"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
               />
             </div>
             <div className="input-group-mb3">

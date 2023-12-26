@@ -11,7 +11,7 @@ function SignupPage() {
 
   const [password, setPassword] = useState('');
   const [passwordConfirm, setPasswordConfirm] = useState('');
-
+  const [role, setRole] = useState('user');
   const handleSignup = () => {
     let infoText = document.getElementById("error")
     
@@ -26,35 +26,59 @@ function SignupPage() {
     }
 
 
-
     else{
       infoText.innerText ="";
-      const url = 'http://localhost:3000/users/create';
 
-      const data = {
-        name: name,
-        surname: surname,
-        username:username,
-        email: email,
-        password: password,
-      };
-  
-      fetch(url, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      })
-        .then(response => response.json())
-        .then(data => {
-          infoText.innerText ="done!";
+      if (role == "user"){
+        fetch("http://localhost:3000/users/create", {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: name,
+            surname: surname,
+            username:username,
+            email: email,
+            password: password,
+          }),
         })
-        .catch(error => {
-          infoText.innerText ="something went wrong, please try again.";
-        });
+          .then(response => response.json())
+          .then(data => {
+            infoText.innerText ="done!";
+          })
+          .catch(error => {
+            infoText.innerText ="something went wrong, please try again.";
+          });
+      }else{
+        fetch("http://localhost:3000/artist/create", {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: name,
+            surname: surname,
+            username:username,
+            email: email,
+            password: password,
+            paintings:[]
+          }),
+        })
+          .then(response => response.json())
+          .then(data => {
+            infoText.innerText ="done!";
+          })
+          .catch(error => {
+            infoText.innerText ="something went wrong, please try again.";
+          });
+      }
+      
     }
     
+  };
+  const handleRole = (event) => {
+    setRole(event.target.value);
   };
 
   return (
@@ -129,12 +153,33 @@ function SignupPage() {
               <input
                 type="password"
                 className="form-control"
-                placeholder="Password-confirm"
+                placeholder="Password Confirm"
                 aria-label="password-confirm"
                 aria-describedby="basic-addon1"
                 value={passwordConfirm}
                 onChange={(e) => setPasswordConfirm(e.target.value)}
               />
+            </div>
+            <div className="input-group-mb3">
+              <label>
+                Role:
+                <input
+                  type="radio"
+                  value="user"
+                  checked={role === 'user'}
+                  onChange={handleRole}
+                />
+                User
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  value="artist"
+                  checked={role === 'artist'}
+                  onChange={handleRole}
+                />
+                Artist
+              </label>
             </div>
             {/* Sign Up Button */}
             <button type="button" className="btn btn-primary" onClick={handleSignup}>

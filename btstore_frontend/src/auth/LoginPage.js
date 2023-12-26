@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 function LoginPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-
+  const [role, setRole] = useState('user');
 
   const handleLogin = () => {
     let infoText = document.getElementById("error")
@@ -22,26 +22,45 @@ function LoginPage() {
 
     else{
       infoText.innerText ="";
-      const url = "http://localhost:3000/users";
-
-      fetch(url)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then(data => {
-        console.log(data);
-      })
-      .catch(error => {
-        infoText.innerText = "something went wrong, please try again.";
-      });
+      let url
+      if (role == "user"){
+        fetch("http://localhost:3000/users/login?username="+username+"&password="+password, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(),
+        })
+          .then(response => response.json())
+          .then(data => {
+            infoText.innerText ="done!";
+          })
+          .catch(error => {
+            infoText.innerText ="something went wrong, please try again.";
+          });
+      }else{
+        fetch("http://localhost:3000/artist/login?username="+username+"&password="+password, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(),
+        })
+          .then(response => response.json())
+          .then(data => {
+            infoText.innerText ="done!";
+          })
+          .catch(error => {
+            infoText.innerText ="something went wrong, please try again.";
+          });
+      }
     }
     
   };
 
-
+  const handleRole = (event) => {
+    setRole(event.target.value);
+  };
 
   return (
     <div className="Login">
@@ -73,6 +92,27 @@ function LoginPage() {
                 onChange={(e) => setPassword(e.target.value)}
               />
 
+            </div>
+            <div className="input-group-mb3">
+              <label>
+                Role:
+                <input
+                  type="radio"
+                  value="user"
+                  checked={role === 'user'}
+                  onChange={handleRole}
+                />
+                User
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  value="artist"
+                  checked={role === 'artist'}
+                  onChange={handleRole}
+                />
+                Artist
+              </label>
             </div>
             {/* Login Button */}
             <button type="button" className="btn btn-primary"onClick={handleLogin}>

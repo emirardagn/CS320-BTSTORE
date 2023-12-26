@@ -38,7 +38,7 @@ function SignupPage() {
           body: JSON.stringify({
             name: name,
             surname: surname,
-            username:username,
+            username: username,
             email: email,
             password: password,
           }),
@@ -59,10 +59,9 @@ function SignupPage() {
           body: JSON.stringify({
             name: name,
             surname: surname,
-            username:username,
+            username: username,
             email: email,
             password: password,
-            paintings:[]
           }),
         })
           .then(response => response.json())

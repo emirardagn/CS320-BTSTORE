@@ -50,6 +50,7 @@ function ProductPage() {
                 {products.map(product => (
                     <div key={product.id} className="ProductItem-artist">
                         <p>{product.name}</p>
+                        <p>{product.description}</p>
                         <p>Fiyat: {product.price} TL</p>
                         <button onClick={() => editProduct(product.id)}>Edit</button>
                         <button onClick={() => removeProduct(product.id)}>Remove</button>

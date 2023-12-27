@@ -23,35 +23,36 @@ function LoginPage() {
     else{
       infoText.innerText ="";
       if (role == "user"){
-        fetch("http://localhost:3000/users/login?username="+username+"&password="+password, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(),
+        fetch("http://localhost:3000/users/login?username="+username+"&password="+password)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
         })
-          .then(response => response.json())
-          .then(data => {
-            infoText.innerText ="done!";
-          })
-          .catch(error => {
-            infoText.innerText ="something went wrong, please try again.";
-          });
+        .then(data => {
+          window.location.href = '/shoppingPage';
+          console.log(data);
+        })
+        .catch(error => {
+          infoText.innerText ="Wrong username, password or may be role";
+        });
+
       }else{
-        fetch("http://localhost:3000/artist/login?username="+username+"&password="+password, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(),
+        fetch("http://localhost:3000/artist/login?username="+username+"&password="+password)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
         })
-          .then(response => response.json())
-          .then(data => {
-            infoText.innerText ="done!";
-          })
-          .catch(error => {
-            infoText.innerText ="something went wrong, please try again.";
-          });
+        .then(data => {
+          window.location.href = '/Dashboard';
+          console.log(data);
+        })
+        .catch(error => {
+          infoText.innerText ="Wrong username, password or may be role)";
+        });
       }
     }
     

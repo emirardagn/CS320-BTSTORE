@@ -1,0 +1,65 @@
+/* ProductPage.css */
+
+.ProductPage {
+    padding: 20px;
+    text-align: center;
+}
+
+.ProductPage h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.ProductList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive grid layout */
+    gap: 20px; /* Space between grid items */
+    padding: 20px;
+}
+
+.ProductItem {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.ProductItem p {
+    margin: 5px 0;
+}
+
+button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button:nth-child(2) {
+    margin-left: 10px;
+    background-color: #dc3545;
+}
+
+button:nth-child(2):hover {
+    background-color: #c82333;
+}
+
+.Link {
+    display: block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.Link:hover {
+    color: #0056b3;
+}

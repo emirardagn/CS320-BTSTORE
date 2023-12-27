@@ -1,0 +1,55 @@
+/* ProfilePage.css */
+
+.ProfilePage {
+    padding: 20px;
+    text-align: center;
+}
+
+.ProfilePage h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.ProfileCard {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 400px;
+    margin: auto;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.ProfileCard input[type="text"],
+.ProfileCard input[type="email"],
+.ProfileCard input[type="password"] {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.deleteButton {
+    background-color: #dc3545;
+}
+
+.deleteButton:hover {
+    background-color: #c82333;
+}

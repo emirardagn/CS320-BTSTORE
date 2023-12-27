@@ -8,6 +8,7 @@ function ProfilePage() {
     //check artist is logged in
     if (catching && catching.length > 1) {
         var artistID = catching[1];
+        
     } else {
         window.location.href = '/';
     }
@@ -22,7 +23,28 @@ function ProfilePage() {
     };
 
     const handleDelete = () => {
-        // Handle account deletion logic here
+        const url = 'http://localhost:3000/artist/delete/'+artistID;
+        console.log(url);
+        fetch(url, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        })
+        .then(response => {
+            if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            document.cookie = null;
+            window.location.href = '/';
+        })
+        .catch(error => {
+            document.cookie = null;
+            window.location.href = '/';
+        });
     };
 
     return (

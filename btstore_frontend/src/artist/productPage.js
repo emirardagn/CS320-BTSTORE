@@ -40,11 +40,7 @@ function ProductPage() {
 
     };
 
-    if (artistID === null) {
-        document.cookie = null
-        window.location.href = '/';
-        return null;
-    }
+
 
     return (
         <div className="ProductPage-artist">

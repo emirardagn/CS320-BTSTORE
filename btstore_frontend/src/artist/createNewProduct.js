@@ -5,7 +5,7 @@ function CreateNewProduct() {
 
     var symbol = /"([^"]+)"/;
     var catching = document.cookie.match(symbol);
-    
+    let infoText = document.getElementById("infoText")
     //check artist is logged in
     if (catching && catching.length > 1) {
         var artistID = catching[1];
@@ -16,31 +16,38 @@ function CreateNewProduct() {
     const [productName, setProductName] = useState('');
     const [description, setDescription] = useState('');
     const [price, setPrice] = useState('');
-    const [stock, setStock] = useState('');
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const productData = {
-            name: productName,
-            description: description,
-            price: price,
-            stock: stock
-        };
-
-        // Send product addition request to API
+    const handleSubmit = () => {
+        infoText.innerText ="";
+        fetch("http://localhost:3000/artist/"+artistID+"/add", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                name: productName,
+                description:description,
+                price:price
+              }),
+            })
+              .then(response => response.json())
+              .then(data => {
+                infoText.innerText ="done!";
+              })
+              .catch(error => {
+                infoText.innerText ="something went wrong, please try again.";
+              });
+            }
         
-        
-            // Error handling
-        
-    };
 
     return (
         <div className="CreateNewProduct-artist">
             <h1>Add New Product</h1>
+            <h1 id = "infoText"></h1>
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
-                    placeholder="Product Name"
+                    placeholder="Painting Name"
                     value={productName}
                     onChange={(e) => setProductName(e.target.value)}
                 />
@@ -54,12 +61,6 @@ function CreateNewProduct() {
                     placeholder="Price"
                     value={price}
                     onChange={(e) => setPrice(e.target.value)}
-                />
-                <input
-                    type="number"
-                    placeholder="Stock Quantity"
-                    value={stock}
-                    onChange={(e) => setStock(e.target.value)}
                 />
                 <button className='button-artist' type="submit">Add</button>
             </form>

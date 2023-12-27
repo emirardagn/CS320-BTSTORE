@@ -2,6 +2,17 @@ import React, { useState } from 'react';
 import './CreateNewProduct.css';
 
 function CreateNewProduct() {
+
+    var symbol = /"([^"]+)"/;
+    var catching = document.cookie.match(symbol);
+    
+    //check artist is logged in
+    if (catching && catching.length > 1) {
+        var artistID = catching[1];
+    } else {
+        window.location.href = '/';
+    }
+
     const [productName, setProductName] = useState('');
     const [description, setDescription] = useState('');
     const [price, setPrice] = useState('');

@@ -2,6 +2,15 @@ import React, { useState } from 'react';
 import './ProfilePage.css';
 
 function ProfilePage() {
+    var symbol = /"([^"]+)"/;
+    var catching = document.cookie.match(symbol);
+    
+    //check artist is logged in
+    if (catching && catching.length > 1) {
+        var artistID = catching[1];
+    } else {
+        window.location.href = '/';
+    }
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');

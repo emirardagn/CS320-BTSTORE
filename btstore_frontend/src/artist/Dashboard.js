@@ -3,6 +3,15 @@ import { Link } from 'react-router-dom';
 import './Dashboard.css';
 
 function Dashboard() {
+    var symbol = /"([^"]+)"/;
+    var catching = document.cookie.match(symbol);
+    
+    //check artist is logged in
+    if (catching && catching.length > 1) {
+        var artistID = catching[1];
+    } else {
+        window.location.href = '/';
+    }
     return (
         <div className="Dashboard-artist">
             <aside className="Sidebar-artist">

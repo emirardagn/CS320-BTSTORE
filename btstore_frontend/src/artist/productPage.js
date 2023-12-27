@@ -3,6 +3,15 @@ import { Link } from 'react-router-dom';
 import './ProductPage.css';
 
 function ProductPage() {
+    var symbol = /"([^"]+)"/;
+    var catching = document.cookie.match(symbol);
+    
+    //check artist is logged in
+    if (catching && catching.length > 1) {
+        var artistID = catching[1];
+    } else {
+        window.location.href = '/';
+    }
     const [products, setProducts] = useState([]);
 
     useEffect(() => {

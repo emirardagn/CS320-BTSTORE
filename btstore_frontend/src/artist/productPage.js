@@ -33,15 +33,16 @@ function ProductPage() {
     }, []);
 
     const editProduct = (productId) => {
-        // Ürün düzenleme mantığı burada
+
     };
 
     const removeProduct = (productId) => {
-        // Ürün silme mantığı burada
+
     };
 
     if (artistID === null) {
-        // artistID mevcut değilse, burada bir şeyler yapabilirsiniz (örneğin, başka bir sayfaya yönlendirme)
+        document.cookie = null
+        window.location.href = '/';
         return null;
     }
 

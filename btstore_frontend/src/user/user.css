@@ -1,5 +1,5 @@
 /* OrderPage.css */
-.container {
+.container-user {
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
@@ -8,30 +8,30 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.container h2 {
+.container-user h2 {
     color: #333;
     text-align: center;
     margin-bottom: 20px;
 }
 
-.form-group label {
+.form-group-user label {
     color: #555;
     font-weight: bold;
 }
 
-.form-control {
+.form-control-user {
     border-radius: 4px;
     border: 1px solid #ddd;
     padding: 10px;
     font-size: 16px;
 }
 
-.form-control:focus {
+.form-control-user :focus {
     border-color: #007bff;
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
 
-.btn-primary {
+.btn-primary-user {
     background-color: #007bff;
     border-color: #007bff;
     color: white;
@@ -40,12 +40,12 @@
     transition: background-color 0.2s ease;
 }
 
-.btn-primary:hover {
+.btn-primary-user :hover {
     background-color: #0056b3;
     border-color: #004085;
 }
 /* PaymentPage.css */
-.payment-container {
+.payment-container-user {
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
@@ -54,30 +54,30 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.payment-container h2 {
+.payment-container-user h2 {
     color: #333;
     text-align: center;
     margin-bottom: 20px;
 }
 
-.form-group label {
+.form-group-user label {
     color: #555;
     font-weight: bold;
 }
 
-.form-control {
+.form-control-user {
     border-radius: 4px;
     border: 1px solid #ddd;
     padding: 10px;
     font-size: 16px;
 }
 
-.form-control:focus {
+.form-control-user :focus {
     border-color: #007bff;
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
 
-.btn-primary {
+.btn-primary-user {
     background-color: #007bff;
     border-color: #007bff;
     color: white;
@@ -86,25 +86,25 @@
     transition: background-color 0.2s ease;
 }
 
-.btn-primary:hover {
+.btn-primary-user:hover {
     background-color: #0056b3;
     border-color: #004085;
 }
 
-.form-row {
+.form-row-user {
     display: flex;
     justify-content: space-between;
 }
 
-.form-row .form-group {
+.form-row-user .form-group-user {
     flex: 1;
     margin-right: 10px;
 }
 
-.form-row .form-group:last-child {
+.form-row-user .form-group-user:last-child {
     margin-right: 0;
 }
-.profile-container {
+.profile-container-user {
     max-width: 400px;
     margin: 0 auto;
     padding: 20px;
@@ -114,15 +114,15 @@
     text-align: center;
 }
 
-.profile-container h2 {
+.profile-container-user h2 {
     margin-bottom: 20px;
 }
 
-.form-group {
+.form-group-user {
     margin-bottom: 15px;
 }
 
-.btn-primary {
+.btn-primary-user {
     background-color: #007bff;
     border-color: #007bff;
     color: white;
@@ -132,23 +132,23 @@
 
 /* shoppingPage.css */
 
-.shopping-container {
+.shopping-container-user {
     padding: 20px;
     text-align: center;
 }
 
-.shopping-container h2 {
+.shopping-container-user h2 {
     margin-bottom: 30px;
 }
 
-.products-list {
+.products-list-user {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
 }
 
-.product-card {
+.product-card-user {
     width: 200px;
     padding: 15px;
     border: 1px solid #ddd;
@@ -157,14 +157,14 @@
 }
 
 /* singleProductPage.css */
-.product-detail-container {
+.product-detail-container-user {
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
     text-align: center;
 }
 
-.product-detail-container h2 {
+.product-detail-container-user h2 {
     margin-bottom: 20px;
 }
 

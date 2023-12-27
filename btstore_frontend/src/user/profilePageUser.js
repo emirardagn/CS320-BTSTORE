@@ -11,21 +11,21 @@ function ProfilePageUser() {
   };
 
   return (
-    <div className="profile-container">
+    <div className="profile-container-user">
       <h2>User Profile</h2>
       <form onSubmit={handleUpdate}>
         {/* Kullanıcı adı giriş alanı */}
-        <div className="form-group">
+        <div className="form-group-user">
           <label>Username</label>
           <input
             type="text"
-            className="form-control"
+            className="form-control-user"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
         </div>
         {/* Profili güncelle butonu */}
-        <button type="submit" className="btn btn-primary">Update Profile</button>
+        <button type="submit" className="btn btn-primary-user">Update Profile</button>
       </form>
     </div>
   );

@@ -14,36 +14,36 @@ function OrderPage() {
   };
 
   return (
-    <div className="container">
+    <div className="container-user">
       <h2 className="my-4">Place Your Order</h2>
 
       <form onSubmit={handleSubmit}>
-        <div className="form-group">
+        <div className="form-group-user">
           <label>Product Name</label>
           <input
             type="text"
-            className="form-control"
+            className="form-control-user"
             value={productName}
             onChange={(e) => setProductName(e.target.value)}
             placeholder="Enter product name"
           />
         </div>
 
-        <div className="form-group">
+        <div className="form-group-user">
           <label>Quantity</label>
           <input
             type="number"
-            className="form-control"
+            className="form-control-user"
             value={quantity}
             onChange={(e) => setQuantity(e.target.value)}
             placeholder="Enter quantity"
           />
         </div>
 
-        <div className="form-group">
+        <div className="form-group-user">
           <label>Shipping Address</label>
           <textarea
-            className="form-control"
+            className="form-control-user"
             rows="3"
             value={address}
             onChange={(e) => setAddress(e.target.value)}
@@ -51,10 +51,10 @@ function OrderPage() {
           ></textarea>
         </div>
 
-        <div className="form-group">
+        <div className="form-group-user">
           <label>Payment Method</label>
           <select
-            className="form-control"
+            className="form-control-user"
             value={paymentMethod}
             onChange={(e) => setPaymentMethod(e.target.value)}
           >
@@ -65,7 +65,7 @@ function OrderPage() {
           </select>
         </div>
 
-        <button type="submit" className="btn btn-primary">Submit Order</button>
+        <button type="submit" className="btn btn-primary-user">Submit Order</button>
       </form>
     </div>
   );

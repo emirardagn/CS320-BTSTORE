@@ -17,15 +17,15 @@ function Dashboard() {
             <aside className="Sidebar-artist">
                 <nav>
                     <ul>
-                        <li><Link to="/productPage">Product Page</Link></li>
-                        <li><Link to="/createNewProduct">Create New Product</Link></li>
+                        <li><Link to="/productPage">My Paintings</Link></li>
+                        <li><Link to="/createNewProduct">Sell New Paintings</Link></li>
                         <li><Link to="/profilePageArtist">Profile Page</Link></li>
                     </ul>
                 </nav>
             </aside>
             <section className="Content-artist">
                 {/* Content goes here */}
-                <h1>Welcome to your Dashboard</h1>
+                <h1>Welcome to your Dashboard {artistID}</h1>
             </section>
         </div>
     );

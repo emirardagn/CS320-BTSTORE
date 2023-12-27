@@ -2,6 +2,18 @@ import React, { useState } from 'react';
 import './user.css';
 
 function ProfilePageUser() {
+
+
+  var symbol = /"([^"]+)"/;
+  var catching = document.cookie.match(symbol);
+  
+  //check user is logged in
+  if (catching && catching.length > 1) {
+      var userID = catching[1];
+  } else {
+      window.location.href = '/';
+  }
+
   const [username, setUsername] = useState(''); // Örnek state
 
   // Profil güncelleme işlemi için handleUpdate fonksiyonu

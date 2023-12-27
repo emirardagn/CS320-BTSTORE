@@ -17,9 +17,9 @@ function ProfilePage() {
     };
 
     return (
-        <div className="ProfilePage">
+        <div className="ProfilePage-artist">
             <h1>Profile Page</h1>
-            <div className="ProfileCard">
+            <div className="ProfileCard-artist">
                 <input
                     type="text"
                     placeholder="Name"
@@ -50,8 +50,8 @@ function ProfilePage() {
                     value={iban}
                     onChange={(e) => setIban(e.target.value)}
                 />
-                <button onClick={handleUpdate}>Apply Changes</button>
-                <button onClick={handleDelete} className="deleteButton">Delete Account</button>
+                <button className='button-artist' onClick={handleUpdate}>Apply Changes</button>
+                <button onClick={handleDelete} className="deleteButton-artist">Delete Account</button>
             </div>
         </div>
     );

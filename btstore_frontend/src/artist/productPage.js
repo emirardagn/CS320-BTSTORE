@@ -19,11 +19,11 @@ function ProductPage() {
     };
 
     return (
-        <div className="ProductPage">
+        <div className="ProductPage-artist">
             <h1>Products</h1>
-            <div className="ProductList">
+            <div className="ProductList-artist">
                 {products.map(product => (
-                    <div key={product.id} className="ProductItem">
+                    <div key={product.id} className="ProductItem-artist">
                         <p>{product.name}</p>
                         <p>Stok: {product.stock}</p>
                         <p>Fiyat: {product.price} TL</p>

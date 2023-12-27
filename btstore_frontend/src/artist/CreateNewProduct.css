@@ -1,6 +1,6 @@
 /* CreateNewProduct.css */
 
-.CreateNewProduct {
+.CreateNewProduct-artist {
     max-width: 600px;
     margin: auto;
     padding: 20px;
@@ -10,12 +10,12 @@
     text-align: center;
 }
 
-.CreateNewProduct h1 {
+.CreateNewProduct-artist h1 {
     color: #333;
     margin-bottom: 20px;
 }
 
-.CreateNewProduct form {
+.CreateNewProduct-artist form {
     display: flex;
     flex-direction: column;
     align-items: center;

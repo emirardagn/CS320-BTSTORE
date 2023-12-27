@@ -1,16 +1,16 @@
 /* ProfilePage.css */
 
-.ProfilePage {
+.ProfilePage-artist {
     padding: 20px;
     text-align: center;
 }
 
-.ProfilePage h1 {
+.ProfilePage-artist h1 {
     color: #333;
     margin-bottom: 20px;
 }
 
-.ProfileCard {
+.ProfileCard-artist {
     background-color: #f9f9f9;
     border-radius: 8px;
     padding: 20px;
@@ -20,9 +20,9 @@
     text-align: left;
 }
 
-.ProfileCard input[type="text"],
-.ProfileCard input[type="email"],
-.ProfileCard input[type="password"] {
+.ProfileCard-artist input[type="text"],
+.ProfileCard-artist input[type="email"],
+.ProfileCard-artist input[type="password"] {
     width: 100%;
     margin-bottom: 15px;
     padding: 10px;
@@ -30,7 +30,7 @@
     border-radius: 4px;
 }
 
-button {
+.button-artist {
     width: 100%;
     padding: 10px;
     margin-top: 10px;
@@ -42,14 +42,14 @@ button {
     font-size: 16px;
 }
 
-button:hover {
+.button-artist:hover {
     background-color: #0056b3;
 }
 
-.deleteButton {
+.deleteButton-artist {
     background-color: #dc3545;
 }
 
-.deleteButton:hover {
+.deleteButton-artist:hover {
     background-color: #c82333;
 }

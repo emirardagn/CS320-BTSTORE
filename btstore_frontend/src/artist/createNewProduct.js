@@ -24,7 +24,7 @@ function CreateNewProduct() {
     };
 
     return (
-        <div className="CreateNewProduct">
+        <div className="CreateNewProduct-artist">
             <h1>Add New Product</h1>
             <form onSubmit={handleSubmit}>
                 <input
@@ -50,7 +50,7 @@ function CreateNewProduct() {
                     value={stock}
                     onChange={(e) => setStock(e.target.value)}
                 />
-                <button type="submit">Add</button>
+                <button className='button-artist' type="submit">Add</button>
             </form>
         </div>
     );

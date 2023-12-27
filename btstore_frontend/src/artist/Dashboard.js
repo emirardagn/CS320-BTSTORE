@@ -4,8 +4,8 @@ import './Dashboard.css';
 
 function Dashboard() {
     return (
-        <div className="Dashboard">
-            <aside className="Sidebar">
+        <div className="Dashboard-artist">
+            <aside className="Sidebar-artist">
                 <nav>
                     <ul>
                         <li><Link to="/productPage">Product Page</Link></li>
@@ -14,7 +14,7 @@ function Dashboard() {
                     </ul>
                 </nav>
             </aside>
-            <section className="Content">
+            <section className="Content-artist">
                 {/* Content goes here */}
                 <h1>Welcome to your Dashboard</h1>
             </section>

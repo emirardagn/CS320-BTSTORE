@@ -12,14 +12,22 @@ function Dashboard() {
     } else {
         window.location.href = '/';
     }
+    
+    const logoutHandler = () => {
+        document.cookie = null;
+        window.location.href = '/';
+    }
+
     return (
         <div className="Dashboard-artist">
             <aside className="Sidebar-artist">
                 <nav>
                     <ul>
+                        <li><Link to="/dashboard">Dashboard</Link></li>
                         <li><Link to="/productPage">My Paintings</Link></li>
                         <li><Link to="/createNewProduct">Sell New Paintings</Link></li>
                         <li><Link to="/profilePageArtist">My Profile</Link></li>
+                        <li style={{ marginTop:'475px' }}><button onClick={logoutHandler}>Log out</button></li>
                     </ul>
                 </nav>
             </aside>

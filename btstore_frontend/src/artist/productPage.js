@@ -33,8 +33,38 @@ function ProductPage() {
     }, []);
 
     const editProduct = (productId) => {
-
+        document.getElementById('popup').style.display = 'block';
+        document.getElementById("input0").innerText = productId;
+        
     };
+
+    const applyChanges = () =>{
+        let paintingID = document.getElementById("input0").innerText;
+        let name = document.getElementById("input1").value;
+        let description = document.getElementById("input2").value;
+        let price = document.getElementById("input3").value;
+
+        fetch("http://localhost:3000/painting/update/"+paintingID, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                name: name,
+                description:description,
+                price:price
+              }),
+            })
+              .then(response => response.json())
+              .then(data => {
+                document.getElementById('popup').style.display = 'none';
+                window.location.href="/productPage"
+              })
+              .catch(error => {
+                document.getElementById('popup').style.display = 'none';
+                window.location.href="/productPage"
+              });
+    }
 
     const removeProduct = (productId) => {
         const url = 'http://localhost:3000/painting/delete/'+productId;
@@ -84,6 +114,22 @@ function ProductPage() {
                         <button className='btn-remove-product' onClick={() => removeProduct(product.id)}>Remove</button>
                     </div>
                 ))}
+                
+                <div style={{ display:'none'}} id="popup">
+                    <label for="input0">ID:</label>
+                    <text type='number' id="input0"></text>
+                    <div></div>
+                    <text for="input1">Name:</text>
+                    <input type="text" id="input1"></input>
+
+                    <text for="input2">Desc:</text>
+                    <input type="text" id="input2"></input>
+
+                    <text for="input3">Price:</text>
+                    <input type="number" id="input3"></input>
+
+                    <button className='btn-edit-product' onClick={() => applyChanges()}>Apply Changes</button>
+                </div>
             </div>
         </div>
     );

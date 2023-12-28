@@ -10,7 +10,11 @@
     margin-bottom: 20px;
     text-align: center;
 }
-
+.ProfilePage-artist h5 {
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
 .ProfileCard-artist {
     border-radius: 8px;
     padding: 100px;

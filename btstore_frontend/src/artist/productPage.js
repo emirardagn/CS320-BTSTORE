@@ -37,7 +37,26 @@ function ProductPage() {
     };
 
     const removeProduct = (productId) => {
-
+        const url = 'http://localhost:3000/painting/delete/'+productId;
+        console.log(url);
+        fetch(url, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        })
+        .then(response => {
+            if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log("done")
+        })
+        .catch(error => {
+            window.location.href = '/productPage';
+        });
     };
 
 
@@ -45,6 +64,7 @@ function ProductPage() {
     return (
         <div className="ProductPage-artist">
             <h1>My Paintings</h1>
+            <h1 id='infoText'></h1>
             <Link to="/createNewProduct">Sell New Painting</Link>
             <div className="ProductList-artist">
                 {products.map(product => (

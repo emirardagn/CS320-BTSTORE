@@ -83,7 +83,7 @@ function ProfilePage() {
             
             <div className="ProfileCard-artist">
             <h1>My Profile</h1>
-            <h1 id='infoText'></h1>
+            <h5 id='infoText'>Please just edit your informations that you want to change, keep the others same</h5>
             <text>Name</text>
                 <input
                     id='name'

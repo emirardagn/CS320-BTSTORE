@@ -25,6 +25,7 @@
     text-align: left;
 }
 
+
 .ProductItem-artist p {
     margin: 5px 0;
 }
@@ -62,4 +63,21 @@
 
 .Link-artist:hover {
     color: #0056b3;
+}
+
+.btn-remove-product{
+    border-radius: 5px;
+    margin: 5px;
+    color: white;
+    padding: 10px;
+    background-color: red;
+    border: 0px solid;
+}
+
+.btn-edit-product{
+    border: 0px solid;
+    border-radius: 5px;
+    color: white;
+    padding: 10px;
+    background-color: #0056b3;
 }

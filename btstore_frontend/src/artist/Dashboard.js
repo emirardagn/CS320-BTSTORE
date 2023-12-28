@@ -19,7 +19,7 @@ function Dashboard() {
                     <ul>
                         <li><Link to="/productPage">My Paintings</Link></li>
                         <li><Link to="/createNewProduct">Sell New Paintings</Link></li>
-                        <li><Link to="/profilePageArtist">Profile Page</Link></li>
+                        <li><Link to="/profilePageArtist">My Profile</Link></li>
                     </ul>
                 </nav>
             </aside>

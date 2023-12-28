@@ -71,15 +71,14 @@ function ProductPage() {
             </div>
             <h1>My Paintings</h1>
             <h1 id='infoText'></h1>
-            <Link to="/createNewProduct">Sell New Painting</Link>
             <div className="ProductList-artist">
                 {products.map(product => (
                     <div key={product.id} className="ProductItem-artist">
-                        <p>{product.name}</p>
-                        <p>{product.description}</p>
-                        <p>Fiyat: {product.price} TL</p>
-                        <button onClick={() => editProduct(product.id)}>Edit</button>
-                        <button onClick={() => removeProduct(product.id)}>Remove</button>
+                        <p>Name: {product.name}</p>
+                        <p>Description: {product.description}</p>
+                        <p className='info'>Price: {product.price} TL</p>
+                        <button className='btn-edit-product' onClick={() => editProduct(product.id)}>Edit</button>
+                        <button className='btn-remove-product' onClick={() => removeProduct(product.id)}>Remove</button>
                     </div>
                 ))}
             </div>

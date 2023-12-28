@@ -63,6 +63,12 @@ function ProductPage() {
 
     return (
         <div className="ProductPage-artist">
+            <div className='nav'>
+                <a href='/dashboard'>Dashboard</a>
+                <a href='/profilePageArtist'>My Profile</a>
+                <a href='/productPage'>My Paintings</a>
+                <a href='/createNewProduct'>Sell New Paintings</a>
+            </div>
             <h1>My Paintings</h1>
             <h1 id='infoText'></h1>
             <Link to="/createNewProduct">Sell New Painting</Link>

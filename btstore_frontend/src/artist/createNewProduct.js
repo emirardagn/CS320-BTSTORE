@@ -42,7 +42,6 @@ function CreateNewProduct() {
             <a href='/profilePageArtist'>My Profile</a>
             <a href='/productPage'>My Paintings</a>
             <a href='/createNewProduct'>Sell New Paintings</a>
-            <a href='/productPage'>Logout</a>
             </div>
             <h1>Add New Product</h1>
             <h2 id = "infoText">You can sell your painting from here!</h2>

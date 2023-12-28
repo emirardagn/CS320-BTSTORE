@@ -10,10 +10,9 @@
 }
 
 .CreateNewProduct-artist h1 {
-    padding-top: 50px;
     color: #3b3b3b;
     font-size: 70px;
-    margin-bottom: 20px;
+    margin-bottom: -20px;
 }
 
 .CreateNewProduct-artist h2 {
@@ -40,6 +39,7 @@
     padding: 20px;
     margin: -20px;
     background-color: #3b3b3b;
+    margin-bottom: 30px;
 }
 
 .nav a{

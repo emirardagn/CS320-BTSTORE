@@ -74,9 +74,12 @@ function ProductPage() {
             <div className="ProductList-artist">
                 {products.map(product => (
                     <div key={product.id} className="ProductItem-artist">
-                        <p>Name: {product.name}</p>
-                        <p>Description: {product.description}</p>
-                        <p className='info'>Price: {product.price} TL</p>
+                        <p>Name:</p>
+                        <p>{product.name}</p>
+                        <p>Description: </p>
+                        <p>{product.description}</p>
+                        <p>Price (TL):</p>
+                        <p className='info'>{product.price}</p>
                         <button className='btn-edit-product' onClick={() => editProduct(product.id)}>Edit</button>
                         <button className='btn-remove-product' onClick={() => removeProduct(product.id)}>Remove</button>
                     </div>

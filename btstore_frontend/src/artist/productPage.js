@@ -79,7 +79,7 @@ function ProductPage() {
                         <p>Description: </p>
                         <p>{product.description}</p>
                         <p>Price (TL):</p>
-                        <p className='info'>{product.price}</p>
+                        <p>{product.price}</p>
                         <button className='btn-edit-product' onClick={() => editProduct(product.id)}>Edit</button>
                         <button className='btn-remove-product' onClick={() => removeProduct(product.id)}>Remove</button>
                     </div>

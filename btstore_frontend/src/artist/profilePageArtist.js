@@ -24,18 +24,15 @@ function ProfilePage() {
         document.getElementById("name").placeholder =data.name;
         document.getElementById("surname").placeholder =data.surname;
         document.getElementById("username").placeholder =data.username;
-        document.getElementById("password").placeholder =data.password;
-        document.getElementById("password-again").placeholder =data.password;
-
-        document.getElementById("surname").value =data.surname;
-        document.getElementById("username").value =data.username;
-        document.getElementById("name").value =data.name;
-        document.getElementById("password").value =data.password;
-        document.getElementById("password-again").value =data.password;
+        document.getElementById("password").placeholder ="******";
+        document.getElementById("password-again").placeholder ="******";
     })
     .catch(error => {
       document.getElementById("infoText").innerText ="Wrong username, password or may be role";
     });
+
+
+    let infoText = document.getElementById("infoText")
 
     const [surname, setSurname] = useState('');
     const [name, setName] = useState('');
@@ -44,7 +41,38 @@ function ProfilePage() {
     const [passwordConfirm, setPasswordConfirm] = useState('');
 
     const handleUpdate = () => {
-        // Handle profile update logic here
+        if (password != passwordConfirm) {
+            infoText.innerText = "Passwords do not match";
+          } else if (password.length < 8) {
+            infoText.innerText = "Password length must be at least 8 characters";
+          } else if (name.trim() === "") {
+            infoText.innerText = "Name cannot be empty, if you don't want to change, write same";
+          } else if (surname.trim() === "") {
+            infoText.innerText = "Surname cannot be empty,if you don't want to change, write same";
+          } else if (username.trim() === "") {
+            infoText.innerText = "Username cannot be empty,if you don't want to change, write same";
+          }else{
+            fetch("http://localhost:3000/artist/update/"+artistID, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: name,
+            surname: surname,
+            username: username,
+            password: password,
+          }),
+        })
+          .then(response => response.json())
+          .then(data => {
+            infoText.innerText ="done!";
+          })
+          .catch(error => {
+            infoText.innerText ="something went wrong, please try again.";
+          });
+        }
+
     };
 
     const handleDelete = () => {
@@ -83,7 +111,7 @@ function ProfilePage() {
 
             <div className="ProfileCard-artist">
                                 <h1>Edit Your Informations</h1>
-                <h5 id='infoText'>Please just touch the informations that you want to change, keep the others same</h5>
+                <h5 id='infoText'>Please fill all the informations that you want to change, keep the others same</h5>
                 <text>Name</text>
                 <input
                 className='inputs'

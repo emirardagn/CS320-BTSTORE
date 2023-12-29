@@ -22,18 +22,17 @@ function Dashboard() {
         <div className="Dashboard-artist">
             <aside className="Sidebar-artist">
                 <nav>
+                    <h1 className='btstoreDashboard'>BT-STORE</h1>
                     <ul>
-                        <li><Link to="/dashboard">Dashboard</Link></li>
+                        <li><Link to="/profilePageArtist">My Profile</Link></li>
                         <li><Link to="/productPage">My Paintings</Link></li>
                         <li><Link to="/createNewProduct">Sell New Paintings</Link></li>
-                        <li><Link to="/profilePageArtist">My Profile</Link></li>
-                        <li style={{ marginTop:'475px' }}><button onClick={logoutHandler}>Log out</button></li>
+                        <li className='logoutbtn'><button onClick={logoutHandler}>Log out</button></li>
                     </ul>
                 </nav>
             </aside>
             <section className="Content-artist">
-                {/* Content goes here */}
-                <h1>Welcome to your Dashboard {artistID}</h1>
+                <h1 className='welcomeDashboard'>Welcome, <div></div> {artistID}</h1>
             </section>
         </div>
     );

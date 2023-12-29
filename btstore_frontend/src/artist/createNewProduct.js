@@ -18,6 +18,11 @@ function CreateNewProduct() {
     const [price, setPrice] = useState('');
     const [url, setURL] = useState('');
 
+    const logoutHandler = () => {
+        document.cookie = null;
+        window.location.href = '/';
+    }
+
     const handleSubmit = () => {
         fetch("http://localhost:3000/artist/"+artistID+"/add", {
             method: 'POST',
@@ -38,15 +43,23 @@ function CreateNewProduct() {
               });
             }
     return (
-        <div className="CreateNewProduct-artist">
-            <div className='nav'>
-            <a href='/dashboard'>Dashboard</a>
-            <a href='/profilePageArtist'>My Profile</a>
-            <a href='/productPage'>My Paintings</a>
-            <a href='/createNewProduct'>Sell New Paintings</a>
-            </div>
-            <h1>Add New Product</h1>
-            <h2 id = "infoText">You can sell your painting from here!</h2>
+        <div className="Dashboard-artist">
+            <aside className="Sidebar-artist">
+                <nav>
+                    <h1 className='btstoreDashboard'>BT-STORE</h1>
+                    <ul>
+                        <li><a href='/dashboard'>Dashboard</a></li>
+                        <li><a href='/profilePageArtist'>My Profile</a></li>
+                        <li><a href='/productPage'>My Paintings</a></li>
+                        <li><a href='/createNewProduct'>Sell New Paintings</a></li>
+                        <li className='logoutbtn' onClick={logoutHandler}><button>Log out</button></li>
+                    </ul>
+                </nav>
+            </aside>
+            <section className="Content-artist">
+            <div className="CreateNewProduct-artist">
+            <h2>Add New Painting</h2>
+            <h2 id = "infoText"></h2>
             <form onSubmit={handleSubmit}>
                 <input
                     className='inputArtist'
@@ -78,6 +91,9 @@ function CreateNewProduct() {
                 <button className='btn-primary' type="submit">Sell</button>
             </form>
         </div>
+            </section>
+        </div>
+        
     );
 }
 

@@ -39,7 +39,7 @@
 .Content-artist {
     flex-grow: 1;
     padding: 20px;
-    background: url(wp.jpeg);
+    background: url(ap.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
     filter: grayscale(70%);

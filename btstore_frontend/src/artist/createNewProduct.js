@@ -16,6 +16,7 @@ function CreateNewProduct() {
     const [productName, setProductName] = useState('');
     const [description, setDescription] = useState('');
     const [price, setPrice] = useState('');
+    const [url, setURL] = useState('');
 
     const handleSubmit = () => {
         fetch("http://localhost:3000/artist/"+artistID+"/add", {
@@ -26,7 +27,8 @@ function CreateNewProduct() {
               body: JSON.stringify({
                 name: productName,
                 description:description,
-                price:price
+                price:price,
+                url:url
               }),
             })
               .then(response => response.json())
@@ -65,6 +67,13 @@ function CreateNewProduct() {
                     placeholder="Price"
                     value={price}
                     onChange={(e) => setPrice(e.target.value)}
+                />
+                <input
+                    className='inputArtist'
+                    type="text"
+                    placeholder="Image URL"
+                    value={url}
+                    onChange={(e) => setURL(e.target.value)}
                 />
                 <button className='btn-primary' type="submit">Sell</button>
             </form>

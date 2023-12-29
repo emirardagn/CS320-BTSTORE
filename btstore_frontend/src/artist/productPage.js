@@ -43,6 +43,7 @@ function ProductPage() {
         let name = document.getElementById("input1").value;
         let description = document.getElementById("input2").value;
         let price = document.getElementById("input3").value;
+        let url = document.getElementById("input4").value;
 
         fetch("http://localhost:3000/painting/update/"+paintingID, {
             method: 'PUT',
@@ -52,7 +53,8 @@ function ProductPage() {
               body: JSON.stringify({
                 name: name,
                 description:description,
-                price:price
+                price:price,
+                url:url
               }),
             })
               .then(response => response.json())
@@ -104,12 +106,10 @@ function ProductPage() {
             <div className="ProductList-artist">
                 {products.map(product => (
                     <div key={product.id} className="ProductItem-artist">
-                        <p>Name:</p>
-                        <p>{product.name}</p>
-                        <p>Description: </p>
+                        <img className='paintingsURL' id="productIMG" src={product.url} alt="null"></img>
+                        <h1>{product.name}</h1>
                         <p>{product.description}</p>
-                        <p>Price (TL):</p>
-                        <p>{product.price}</p>
+                        <p>{product.price} TL</p>
                         <button className='btn-edit-product' onClick={() => editProduct(product.id)}>Edit</button>
                         <button className='btn-remove-product' onClick={() => removeProduct(product.id)}>Remove</button>
                     </div>
@@ -119,6 +119,8 @@ function ProductPage() {
                     <label for="input0">ID:</label>
                     <text type='number' id="input0"></text>
                     <div></div>
+                    <text for="input4">url:</text>
+                    <input type="text" id="input4"></input>
                     <text for="input1">Name:</text>
                     <input type="text" id="input1"></input>
 

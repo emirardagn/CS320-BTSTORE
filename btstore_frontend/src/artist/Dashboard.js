@@ -39,6 +39,7 @@ function Dashboard() {
                 <nav>
                     <h1 className='btstoreDashboard'>BT-STORE</h1>
                     <ul>
+                        <li><Link to="/dashboard">Dashboard</Link></li>
                         <li><Link to="/profilePageArtist">My Profile</Link></li>
                         <li><Link to="/productPage">My Paintings</Link></li>
                         <li><Link to="/createNewProduct">Sell New Paintings</Link></li>

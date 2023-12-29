@@ -37,7 +37,10 @@ function ProductPage() {
         document.getElementById("input0").innerText = productId;
         
     };
-
+    const logoutHandler = () => {
+        document.cookie = null;
+        window.location.href = '/';
+    }
     const applyChanges = () =>{
         let paintingID = document.getElementById("input0").innerText;
         let name = document.getElementById("input1").value;
@@ -94,14 +97,21 @@ function ProductPage() {
 
 
     return (
-        
-        <div className="ProductPage-artist">
-            <div className='nav'>
-                <a href='/dashboard'>Dashboard</a>
-                <a href='/profilePageArtist'>My Profile</a>
-                <a href='/productPage'>My Paintings</a>
-                <a href='/createNewProduct'>Sell New Paintings</a>
-            </div>
+        <div className="Dashboard-artist">
+            <aside className="Sidebar-artist">
+                <nav>
+                    <h1 className='btstoreDashboard'>BT-STORE</h1>
+                    <ul>
+                        <li><Link to="/dashboard">Dashboard</Link></li>
+                        <li><Link to="/profilePageArtist">My Profile</Link></li>
+                        <li><Link to="/productPage">My Paintings</Link></li>
+                        <li><Link to="/createNewProduct">Sell New Paintings</Link></li>
+                        <li className='logoutbtn'><button onClick={logoutHandler}>Log out</button></li>
+                    </ul>
+                </nav>
+            </aside>
+            <section className="">
+            <div className="ProductPage-artist">
             <h1>My Paintings</h1>
             <h1 id='infoText'></h1>
             <div className="ProductList-artist">
@@ -135,6 +145,9 @@ function ProductPage() {
                 </div>
             </div>
         </div>
+            </section>
+        </div>
+        
     );
 }
 

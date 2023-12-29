@@ -1,0 +1,170 @@
+/* OrderPage.css */
+.container-user {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.container-user h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group-user label {
+    color: #555;
+    font-weight: bold;
+}
+
+.form-control-user {
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.form-control-user :focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.btn-primary-user {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-primary-user :hover {
+    background-color: #0056b3;
+    border-color: #004085;
+}
+/* PaymentPage.css */
+.payment-container-user {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.payment-container-user h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group-user label {
+    color: #555;
+    font-weight: bold;
+}
+
+.form-control-user {
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.form-control-user :focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.btn-primary-user {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-primary-user:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+}
+
+.form-row-user {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-row-user .form-group-user {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.form-row-user .form-group-user:last-child {
+    margin-right: 0;
+}
+.profile-container-user {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.profile-container-user h2 {
+    margin-bottom: 20px;
+}
+
+.form-group-user {
+    margin-bottom: 15px;
+}
+
+.btn-primary-user {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* shoppingPage.css */
+
+.shopping-container-user {
+    padding: 20px;
+    text-align: center;
+}
+
+.shopping-container-user h2 {
+    margin-bottom: 30px;
+}
+
+.products-list-user {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.product-card-user {
+    width: 200px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* singleProductPage.css */
+.product-detail-container-user {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.product-detail-container-user h2 {
+    margin-bottom: 20px;
+}
+

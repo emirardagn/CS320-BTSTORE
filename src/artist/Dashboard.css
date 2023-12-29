@@ -1,0 +1,47 @@
+/* Dashboard.css */
+
+.Dashboard-artist {
+    display: flex;
+    min-height: 100vh; /* Tam ekran yüksekliği */
+}
+
+.Sidebar-artist {
+    width: 200px; /* Yan menünün genişliği */
+    background-color: #333; /* Arka plan rengi */
+    color: white; /* Yazı rengi */
+    padding: 20px; /* İç boşluk */
+}
+
+.Sidebar-artist nav ul {
+    list-style-type: none; /* Liste işaretlerini kaldır */
+    padding: 0; /* Varsayılan padding'i sıfırla */
+}
+
+.Sidebar-artist nav ul li {
+    margin-bottom: 20px; /* Liste öğeleri arası boşluk artırıldı */
+    font-size: 18px; /* Yazı boyutu büyütüldü */
+}
+
+.Sidebar-artist nav ul li a {
+    color: white; /* Link rengi */
+    text-decoration: none; /* Alt çizgiyi kaldır */
+}
+
+.Sidebar-artist nav ul li a:hover {
+    text-decoration: underline; /* Üzerine gelindiğinde alt çizgi ekle */
+}
+
+.Content-artist {
+    flex-grow: 1; /* Kalan alanı kapla */
+    padding: 20px; /* İç boşluk */
+    background-color: #f4f4f4; /* Arka plan rengi */
+    display: flex; /* Flexbox eklendi */
+    flex-direction: column; /* Dikey yönlendirme */
+    align-items: center; /* Yatayda ortala */
+}
+
+.Content-artist h1 {
+    margin-top: 0; /* Üst marjı sıfırla veya gerekiyorsa ayarla */
+    color: #333; /* Başlık rengi */
+    font-size: 24px; /* Başlık boyutu büyütüldü */
+}

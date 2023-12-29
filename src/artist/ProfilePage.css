@@ -1,0 +1,71 @@
+/* ProfilePage.css */
+
+.ProfilePage-artist {
+    padding: 20px;
+    text-align: center;
+}
+
+.ProfilePage-artist h1 {
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.ProfilePage-artist h5 {
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.ProfileCard-artist {
+    border-radius: 8px;
+    padding: 100px;
+    padding-top: 10px;
+    max-width: 400px;
+    margin: auto;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.432);
+    text-align: left;
+}
+
+.ProfileCard-artist input[type="text"],
+.ProfileCard-artist input[type="email"],
+.ProfileCard-artist input[type="password"] {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.button-artist {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 18px;
+}
+
+.button-artist:hover {
+    background-color: #0056b3;
+}
+
+.deleteButton-artist {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 18px;
+    background-color: #dc3545;
+}
+
+.deleteButton-artist:hover {
+    background-color: #c82333;
+}

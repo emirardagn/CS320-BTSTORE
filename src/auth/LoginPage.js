@@ -31,8 +31,9 @@ function LoginPage() {
           return response.json();
         })
         .then(data => {
+          document.cookie = JSON.stringify(data.id);
           window.location.href = '/shoppingPage';
-          console.log(data);
+          
         })
         .catch(error => {
           infoText.innerText ="Wrong username, password or may be role";
@@ -47,11 +48,11 @@ function LoginPage() {
           return response.json();
         })
         .then(data => {
+          document.cookie = JSON.stringify(data.id);
           window.location.href = '/Dashboard';
-          console.log(data);
         })
         .catch(error => {
-          infoText.innerText ="Wrong username, password or may be role)";
+          infoText.innerText ="Wrong username, password or may be role";
         });
       }
     }

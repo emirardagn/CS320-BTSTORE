@@ -1,9 +1,6 @@
 .ProfilePage-artist {
     padding: 20px;
     text-align: center;
-    background: url(wp.jpeg);
-    background-repeat: no-repeat;
-    background-size: cover;
     filter: grayscale(70%);
 }
 

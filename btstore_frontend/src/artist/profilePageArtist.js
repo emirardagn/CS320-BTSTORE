@@ -31,7 +31,10 @@ function ProfilePage() {
       document.getElementById("infoText").innerText ="Wrong username, password or may be role";
     });
 
-
+    const logoutHandler = () => {
+      document.cookie = null;
+      window.location.href = '/';
+  }
     let infoText = document.getElementById("infoText")
 
     const [surname, setSurname] = useState('');
@@ -101,16 +104,24 @@ function ProfilePage() {
     };
 
     return (
-        <div className="ProfilePage-artist">
-            <div className='nav'>
-                <a href='/dashboard'>Dashboard</a>
-                <a href='/profilePageArtist'>My Profile</a>
-                <a href='/productPage'>My Paintings</a>
-                <a href='/createNewProduct'>Sell New Paintings</a>
-            </div>
-
+      <div>
+          <div className="Dashboard-artist">
+            <aside className="Sidebar-artist">
+                <nav>
+                    <h1 className='btstoreDashboard'>BT-STORE</h1>
+                    <ul>
+                        <li><a href='/dashboard'>Dashboard</a></li>
+                        <li><a href='/profilePageArtist'>My Profile</a></li>
+                        <li><a href='/productPage'>My Paintings</a></li>
+                        <li><a href='/createNewProduct'>Sell New Paintings</a></li>
+                        <li className='logoutbtn' onClick={logoutHandler}><button>Log out</button></li>
+                    </ul>
+                </nav>
+            </aside>
+            <section className="Content-artist">
+            <div className="ProfilePage-artist">
             <div className="ProfileCard-artist">
-                                <h1>Edit Your Informations</h1>
+                <h2>Edit Your Informations</h2>
                 <h5 id='infoText'>Please fill all the informations that you want to change, keep the others same</h5>
                 <text>Name</text>
                 <input
@@ -160,6 +171,11 @@ function ProfilePage() {
                 <button className='button-artist' onClick={handleUpdate}>Apply Changes</button>
                 <button onClick={handleDelete} className="deleteButton-artist">Delete Account</button>
             </div>
+        </div>
+            </section>
+        </div>
+ 
+        
         </div>
     );
 }

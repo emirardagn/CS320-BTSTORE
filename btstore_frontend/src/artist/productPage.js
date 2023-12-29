@@ -94,6 +94,7 @@ function ProductPage() {
 
 
     return (
+        
         <div className="ProductPage-artist">
             <div className='nav'>
                 <a href='/dashboard'>Dashboard</a>

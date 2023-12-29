@@ -80,12 +80,13 @@ function ProfilePage() {
                 <a href='/productPage'>My Paintings</a>
                 <a href='/createNewProduct'>Sell New Paintings</a>
             </div>
-            
+
             <div className="ProfileCard-artist">
-            <h1>My Profile</h1>
-            <h5 id='infoText'>Please just touch the informations that you want to change, keep the others same</h5>
-            <text>Name</text>
+                                <h1>Edit Your Informations</h1>
+                <h5 id='infoText'>Please just touch the informations that you want to change, keep the others same</h5>
+                <text>Name</text>
                 <input
+                className='inputs'
                     id='name'
                     type="text"
                     placeholder="Name"
@@ -94,6 +95,7 @@ function ProfilePage() {
                 />
                 <text>Surname</text>
                 <input
+                className='inputs'
                     id='surname'
                     type="text"
                     placeholder="Surname"
@@ -102,6 +104,7 @@ function ProfilePage() {
                 />
                 <text>Username</text>
                 <input
+                className='inputs'
                     id='username'
                     type="text"
                     placeholder="Username"
@@ -110,6 +113,7 @@ function ProfilePage() {
                 />
                 <text>Password</text>
                 <input
+                className='inputs'
                     id='password'
                     type="password"
                     placeholder="Password"
@@ -118,6 +122,7 @@ function ProfilePage() {
                 />
                 <text>Confirm Password</text>
                 <input
+                className='inputs'
                     id='password-again'
                     type="password"
                     placeholder="Confirm Password"

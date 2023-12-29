@@ -1,6 +1,7 @@
 .ProfilePage-artist {
     padding: 20px;
     text-align: center;
+    
 }
 
 .ProfilePage-artist h1 {
@@ -14,6 +15,7 @@
     text-align: center;
 }
 .ProfileCard-artist {
+    display: inline-block;
     border-radius: 8px;
     padding: 100px;
     padding-top: 10px;
@@ -23,14 +25,25 @@
     text-align: left;
 }
 
-.ProfileCard-artist input[type="text"],
-.ProfileCard-artist input[type="email"],
-.ProfileCard-artist input[type="password"] {
+.inputss{
+    display: inline;
+    width: 20%;
+    margin-bottom: 15px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+}
+
+.inputs{
+    display: inline;
     width: 100%;
     margin-bottom: 15px;
     padding: 15px;
     border: 1px solid #ddd;
     border-radius: 20px;
+}
+.ProfileCard-artist text{
+    padding: 10px;
 }
 
 .button-artist {
@@ -54,7 +67,7 @@
     width: 100%;
     padding: 15px;
     transition-duration: 0.3s;
-    border: 1px solid #ae38cf;
+    border: 1px solid #424242;
     border-radius: 5px;
     color: #ffffff;
     background-color: #990b0b;

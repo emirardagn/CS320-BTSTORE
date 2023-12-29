@@ -52,7 +52,7 @@ function LoginPage() {
           window.location.href = '/Dashboard';
         })
         .catch(error => {
-          infoText.innerText ="Wrong username, password or may be role";
+          infoText.innerText ="Wrong username, password or may be role)";
         });
       }
     }

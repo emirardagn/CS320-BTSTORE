@@ -16,17 +16,21 @@ function SignupPage() {
     let infoText = document.getElementById("error")
     
     //example checks
-    if (password != passwordConfirm){
-      
-      infoText.innerText ="passwords not matched";
-    }
-
-    else if (password.length <2){
-      infoText.innerText ="passwords length must be at least 2";
-    }
-
-
-    else{
+    if (password != passwordConfirm) {
+      infoText.innerText = "Passwords do not match";
+    } else if (password.length < 8) {
+      infoText.innerText = "Password length must be at least 8 characters";
+    } else if (email.trim() === "") {
+      infoText.innerText = "Email cannot be empty";
+    } else if (!isValidEmail(email)) {
+      infoText.innerText = "Invalid email format";
+    } else if (name.trim() === "") {
+      infoText.innerText = "Name cannot be empty";
+    } else if (username.trim() === "") {
+      infoText.innerText = "Username cannot be empty";
+    } else if (surname.trim() === "") {
+      infoText.innerText = "Surname cannot be empty";
+    }else{
       infoText.innerText ="";
       if (role == "user"){
         fetch("http://localhost:3000/users/create", {
@@ -44,7 +48,7 @@ function SignupPage() {
         })
           .then(response => response.json())
           .then(data => {
-            infoText.innerText ="done!";
+            infoText.innerText ="done, go to Login Page and!";
           })
           .catch(error => {
             infoText.innerText ="something went wrong, please try again.";
@@ -65,7 +69,7 @@ function SignupPage() {
         })
           .then(response => response.json())
           .then(data => {
-            infoText.innerText ="done!";
+            infoText.innerText ="done, go to Login Page and!";
           })
           .catch(error => {
             infoText.innerText ="something went wrong, please try again.";
@@ -78,7 +82,9 @@ function SignupPage() {
   const handleRole = (event) => {
     setRole(event.target.value);
   };
-
+  function isValidEmail(email) {
+    return email.includes('@');
+  }
   return (
     <div className="Login">
       <body className="Login_body">
@@ -185,7 +191,7 @@ function SignupPage() {
             </button>
           </div>
           <div className="next_page_button">
-            <text>Have an account yet?</text>
+            <text>Have an account?</text>
             <Link to="/" className="signupLink">
               Login!
             </Link>

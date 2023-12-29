@@ -13,6 +13,21 @@ function Dashboard() {
         window.location.href = '/';
     }
     
+    fetch("http://localhost:3000/artist/id/"+artistID)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+        document.getElementById("username").innerText ="Welcome, @"+data.username;
+    })
+    .catch(error => {
+      document.getElementById("infoText").innerText ="Wrong username, password or may be role";
+    });
+
+
     const logoutHandler = () => {
         document.cookie = null;
         window.location.href = '/';
@@ -32,7 +47,7 @@ function Dashboard() {
                 </nav>
             </aside>
             <section className="Content-artist">
-                <h1 className='welcomeDashboard'>Welcome, <div></div> {artistID}</h1>
+                <h1 className='welcomeDashboard'id='username'></h1>
             </section>
         </div>
     );

@@ -11,62 +11,38 @@ function PaymentPage() {
     e.preventDefault();
     // Ödeme işleme ve validasyon kodları buraya eklenebilir
     console.log({ cardNumber, cardHolder, expiryDate, cvv });
+    if (paymentSuccess) {
+      deleteProductById(productId); // productId should be retrieved from context or props
+    }
   };
 
-  return (
-    <div className="payment-container">
-      <h2 className="my-4">Payment Details</h2>
+  
 
-      <form onSubmit={handlePayment}>
+  return (
+    <div className="payment-page">
+      <h1>Payment Information</h1>
+      <form onSubmit={handleConfirmPayment}>
         <div className="form-group">
           <label>Card Number</label>
-          <input
-            type="text"
-            className="form-control"
-            value={cardNumber}
-            onChange={(e) => setCardNumber(e.target.value)}
-            placeholder="Enter card number"
-          />
+          <input type="text" value={cardNumber} onChange={(e) => setCardNumber(e.target.value)} />
         </div>
-
         <div className="form-group">
-          <label>Card Holder</label>
-          <input
-            type="text"
-            className="form-control"
-            value={cardHolder}
-            onChange={(e) => setCardHolder(e.target.value)}
-            placeholder="Enter card holder's name"
-          />
+          <label>Card Name</label>
+          <input type="text" value={cardName} onChange={(e) => setCardName(e.target.value)} />
         </div>
-
-        <div className="form-row">
-          <div className="form-group col-md-6">
-            <label>Expiry Date</label>
-            <input
-              type="text"
-              className="form-control"
-              value={expiryDate}
-              onChange={(e) => setExpiryDate(e.target.value)}
-              placeholder="MM/YY"
-            />
-          </div>
-          <div className="form-group col-md-6">
-            <label>CVV</label>
-            <input
-              type="password"
-              className="form-control"
-              value={cvv}
-              onChange={(e) => setCvv(e.target.value)}
-              placeholder="CVV"
-            />
-          </div>
+        <div className="form-group">
+          <label>Expiry Date</label>
+          <input type="text" value={expiryDate} onChange={(e) => setExpiryDate(e.target.value)} />
         </div>
-
-        <button type="submit" className="btn btn-primary">Make Payment</button>
+        <div className="form-group">
+          <label>CVV</label>
+          <input type="text" value={cvv} onChange={(e) => setCvv(e.target.value)} />
+        </div>
+        <button type="submit">Confirm Payment</button>
       </form>
     </div>
   );
+
 }
 
 export default PaymentPage;

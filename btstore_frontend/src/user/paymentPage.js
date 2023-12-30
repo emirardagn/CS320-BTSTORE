@@ -16,7 +16,58 @@ function PaymentPage() {
   } else {
     window.location.href = '/';
   }
+  const removeFromBasket = () => {
+    if (!userID) {
+      window.location.href = '/';
+      return;
+    }
 
+    fetch("http://localhost:3000/users/id/" + userID)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+      .then(data => {
+        for (let i = 0; i < data.basket.paintings.length; i++) {
+          fetch("http://localhost:3000/users/" + userID + "/basket/remove/" + data.basket.paintings[i].id, {
+            method: 'DELETE',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          })
+            .then(response => {
+              if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+              }
+              return response.json();
+            })
+            .then(data => {
+              console.log("done");
+            })
+            .catch(error => {
+              console.error('Error removing item from basket:', error);
+            });
+            fetch("http://localhost:3000/painting/delete/"+data.basket.paintings[i].id, {
+              method: 'DELETE',
+              headers: {
+                  'Content-Type': 'application/json',
+              },
+              })
+              .then(response => {
+                  if (!response.ok) {
+                  throw new Error(`HTTP error! Status: ${response.status}`);
+                  }
+                  return response.json();
+              })
+              .then(data => {
+                  console.log("done")
+              })
+
+        }
+      });
+  };
   useEffect(() => {
     fetch("http://localhost:3000/users/id/" + userID)
       .then(response => {

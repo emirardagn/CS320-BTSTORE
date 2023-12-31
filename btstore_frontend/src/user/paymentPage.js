@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-
 function PaymentPage() {
 
 
@@ -16,6 +15,7 @@ function PaymentPage() {
   } else {
     window.location.href = '/';
   }
+
   const removeFromBasket = () => {
     if (!userID) {
       window.location.href = '/';
@@ -64,10 +64,13 @@ function PaymentPage() {
               .then(data => {
                   console.log("done")
               })
-
+              .catch(error => {
+                window.location.href = '/shoppingPage';
+            });
         }
       });
   };
+
   useEffect(() => {
     fetch("http://localhost:3000/users/id/" + userID)
       .then(response => {
@@ -85,6 +88,7 @@ function PaymentPage() {
       });
   }, [userID]);
   
+
   const [cardNumber, setCardNumber] = useState('');
   const [cardHolder, setCardHolder] = useState('');
   const [expiryDate, setExpiryDate] = useState('');
@@ -96,6 +100,7 @@ function PaymentPage() {
     console.log({ cardNumber, cardHolder, expiryDate, cvv });
   };
 
+  
   return (
     <div className="payment-container-user">
     <Navbar expand="lg" className="bg-body-tertiary">

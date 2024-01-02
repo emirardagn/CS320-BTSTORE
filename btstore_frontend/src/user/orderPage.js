@@ -1,19 +1,42 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './user.css';
+import { Link } from 'react-router-dom';
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
 
 function OrderPage() {
-
-
+  const [paintingsData, setPaintingsData] = useState([]);
+  const [userID, setUserID] = useState(null);
   var symbol = /"([^"]+)"/;
   var catching = document.cookie.match(symbol);
-  
-  //check user is logged in
-  if (catching && catching.length > 1) {
-      var userID = catching[1];
-  } else {
-      window.location.href = '/';
-  }
 
+  useEffect(() => {
+    if (catching && catching.length > 1) {
+      setUserID(catching[1]);
+    } else {
+      window.location.href = '/';
+    }
+
+    fetch("http://localhost:3000/users/id/" + userID)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        const paintings = data.basket.paintings.map(painting => ({
+          name: painting.name,
+          price: painting.price,
+        }));
+        document.getElementById("username").innerText = "Total Price: "+data.basket.total;
+        setPaintingsData(paintings);
+      })
+      .catch(error => {
+        console.error('Error fetching user data:', error);
+      });
+  }, [userID]);
 
   const [productName, setProductName] = useState('');
   const [quantity, setQuantity] = useState('');
@@ -22,64 +45,34 @@ function OrderPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Sipariş işleme ve validasyon kodları buraya eklenebilir
     console.log({ productName, quantity, address, paymentMethod });
   };
 
   return (
     <div className="container-user">
+      <Navbar expand="lg" className="bg-body-tertiary">
+        <Container>
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-auto">
+              <Navbar.Brand style={{ padding: '20px' }}><Link to="/shoppingPage">Shop</Link></Navbar.Brand>
+              <Nav.Link style={{ textDecoration: 'none', color: 'inherit' }}><Link to="/orderPage" style={{ textDecoration: 'none', color: 'inherit' }}>My Orders</Link></Nav.Link>
+              <Nav.Link style={{ textDecoration: 'none', color: 'inherit' }}><Link to="/profilePageUser" style={{ textDecoration: 'none', color: 'inherit' }}>Profile</Link></Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
       <h2 className="my-4">Place Your Order</h2>
-
-      <form onSubmit={handleSubmit}>
-        <div className="form-group-user">
-          <label>Product Name</label>
-          <input
-            type="text"
-            className="form-control-user"
-            value={productName}
-            onChange={(e) => setProductName(e.target.value)}
-            placeholder="Enter product name"
-          />
-        </div>
-
-        <div className="form-group-user">
-          <label>Quantity</label>
-          <input
-            type="number"
-            className="form-control-user"
-            value={quantity}
-            onChange={(e) => setQuantity(e.target.value)}
-            placeholder="Enter quantity"
-          />
-        </div>
-
-        <div className="form-group-user">
-          <label>Shipping Address</label>
-          <textarea
-            className="form-control-user"
-            rows="3"
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
-            placeholder="Enter your address"
-          ></textarea>
-        </div>
-
-        <div className="form-group-user">
-          <label>Payment Method</label>
-          <select
-            className="form-control-user"
-            value={paymentMethod}
-            onChange={(e) => setPaymentMethod(e.target.value)}
-          >
-            <option value="Credit Card">Credit Card</option>
-            <option value="Debit Card">Debit Card</option>
-            <option value="PayPal">PayPal</option>
-            <option value="Cash on Delivery">Cash on Delivery</option>
-          </select>
-        </div>
-
-        <button type="submit" className="btn btn-primary-user">Submit Order</button>
-      </form>
+      <ul>
+        {paintingsData.map((painting, index) => (
+          <li key={index}>
+            Name: {painting.name}, Price: {painting.price}
+          </li>
+        ))}
+      </ul>
+      <button onClick={() => window.location.href = '/paymentPage'}>
+        Go to Payment Page
+      </button>
+      <p id ='username'></p>
     </div>
   );
 }

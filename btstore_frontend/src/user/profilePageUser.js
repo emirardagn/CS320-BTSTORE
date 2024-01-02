@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import './user.css';
 import "./profilePageUser.css"
-
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import { Link } from 'react-router-dom';
 function ProfilePageUser() {
 
 
@@ -110,17 +113,17 @@ function ProfilePageUser() {
     <div>
       <div className="ProfilePage-user">
         <aside className="Sidebar-user">
-            <nav>
-                <h1 className='btstoreDashboard'>BT-STORE</h1>
-                <ul>
-                    <li><a href='/shoppingPage'>Shopping</a></li>
-                    <li><a href='/profilePageUser'>My Profile</a></li>
-                    <li><a href='/singleProductPage'>Single Product</a></li>
-                    <li><a href='/orderPage'>Order</a></li>
-                    <li><a href='/paymentPage'>Payment</a></li>
-                    <li className='logoutbtn' onClick={logoutHandler}><button>Log out</button></li>
-                </ul>
-            </nav>
+        <Navbar expand="lg" className="bg-body-tertiary">
+      <Container>
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Navbar.Brand style={{padding:'20px'}}><Link to="/shoppingPage">Shop</Link></Navbar.Brand>
+            <Nav.Link style={{ textDecoration: 'none', color: 'inherit' }}><Link to="/orderPage"  style={{ textDecoration: 'none', color: 'inherit' }}>My Orders</Link></Nav.Link>
+            <Nav.Link style={{ textDecoration: 'none', color: 'inherit' }}><Link to="/profilePageUser"  style={{ textDecoration: 'none', color: 'inherit' }}>Profile</Link></Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
         </aside>
         <section className="Content-user">
         <div className="ProfilePage-user">

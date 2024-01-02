@@ -61,7 +61,7 @@ function ProfilePageUser() {
         } else if (username.trim() === "") {
           infoText.innerText = "Username cannot be empty,if you don't want to change, write same";
         }else{
-          fetch("http://localhost:3000/user/update/"+userID, {
+          fetch("http://localhost:3000/users/update/"+userID, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

@@ -48,7 +48,7 @@ function SignupPage() {
         })
           .then(response => response.json())
           .then(data => {
-            infoText.innerText ="done, go to Login Page and!";
+            infoText.innerText ="done, go to Login Page";
           })
           .catch(error => {
             infoText.innerText ="something went wrong, please try again.";
@@ -69,7 +69,7 @@ function SignupPage() {
         })
           .then(response => response.json())
           .then(data => {
-            infoText.innerText ="done, go to Login Page and!";
+            infoText.innerText ="done, go to Login Page";
           })
           .catch(error => {
             infoText.innerText ="something went wrong, please try again.";

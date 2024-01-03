@@ -77,7 +77,7 @@ function ShoppingPage() {
         </Navbar.Collapse>
       </Container>
     </Navbar>
-      <h2>Our Products</h2>
+      <h2>Paintings</h2>
       <div>
         <label>Min Price:</label>
         <input
